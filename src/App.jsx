@@ -1,12 +1,34 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Navbar from "./components/common/Navbar"
 import Card from "./page/card/Card"
+import { io } from "socket.io-client"
 
 const App = () => {
   const [Username, setUsername] = useState("")
   const [User, setUser] = useState("")
   const [UserPassword, setUserPassword] = useState("")
 
+  useEffect(() => {
+    const socket = io("http://localhost:5000")
+    console.log(socket.on("FirstEvent", (data) => {
+      console.log(data)
+    }))
+    // socket.on("FirstEvent", (data) => {
+    //   console.log(data)
+    // })
+  }, [])
+
+  // // Connect to the server
+  // const socket = io("http://localhost:5000");
+
+  // socket.on("connect", () => {
+  //   console.log("Connected to server");
+  // });
+
+  // // Listen for the "firstEvent" message
+  // socket.on("firstEvent", (data) => {
+  //   console.log(data); // Should log "Hello this it test!"
+  // });
   console.log(User)
   return (
     <>

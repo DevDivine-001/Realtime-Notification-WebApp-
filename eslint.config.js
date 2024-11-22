@@ -32,6 +32,12 @@ export default [
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
+        {
+          "rules": {
+            "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+          }
+        }
+
       ],
     },
   },
